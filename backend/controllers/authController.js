@@ -12,7 +12,7 @@ const authController = {
         return res.status(400).json({ ok: false, error: { message: "Todos los campos son obligatorios." } });
       }
 
-      // Encriptar la contraseña (Good practice obligatoria)
+      // Encriptar la contraseña con bycrypt
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -55,7 +55,7 @@ const authController = {
           .json({ ok: false, error: { message: "Credenciales incorrectas (Contraseña inválida)." } });
       }
 
-      // Firmar el JWT (Contiene el Payload sin datos sensibles, solo id y email)
+      // Firmar el JWT (Contiene el Payload )
       // Es STATELESS porque el servidor no guarda sesiones en memoria, el token lo lleva todo.
       const token = jwt.sign(
         { id: user.id, email: user.email },

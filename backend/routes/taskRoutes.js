@@ -3,18 +3,13 @@ const router = express.Router();
 const taskController = require("../controllers/taskController");
 const protect = require("../middleware/authMiddleware");
 
-// 1. Ruta para OBTENER todas las tareas
-// GET /api/tasks
+// 1. Ruta GET
 router.get("/", protect, taskController.getAllTasks);
-// 2. Ruta para CREAR una tarea
-// POST /api/tasks
+// 2. Ruta crear
 router.post("/", protect, taskController.createTask);
-// 3. Ruta para ACTUALIZAR una tarea específica (requiere ID)
-// PUT /api/tasks/:id
+// 3. Ruta para actualizar
 router.put("/:id", protect, taskController.updateTask);
-
-// 4. Ruta para ELIMINAR una tarea específica (requiere ID)
-// DELETE /api/tasks/:id
+// 4. Eliminar
 router.delete("/:id", protect, taskController.deleteTask);
 
 module.exports = router;

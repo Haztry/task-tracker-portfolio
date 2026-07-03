@@ -174,9 +174,16 @@ taskForm.addEventListener("submit", async (e) => {
 // 3. ELIMINAR TAREA (DELETE)
 // ==========================================
 async function deleteTask(id) {
+  const token = localStorage.getItem("token");
   if (confirm("¿Estás seguro de que deseas eliminar esta tarea?")) {
     try {
-      const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const result = await response.json();
       if (result.ok) {
         fetchTasks(); // Refrescamos el tablero

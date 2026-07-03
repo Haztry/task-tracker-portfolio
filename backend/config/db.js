@@ -7,7 +7,7 @@ const pool = new Pool({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   database: process.env.DB_DATABASE,
-  ssl: require, // <-- Esto fuerza el SSL directo en el código si es necesario
+  ssl: require,
 });
 
 // Probamos la conexión
