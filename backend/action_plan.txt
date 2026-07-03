@@ -1,0 +1,34 @@
+task-tracker-project/
+│
+├── backend/
+│   ├── config/
+│   │   └── db.js              # Conexión a la base de datos PostgreSQL
+│   │
+│   ├── controllers/
+│   │   ├── authController.js  # Lógica de login / registro
+│   │   └── taskController.js  # Lógica de negocio (Crear, leer, actualizar, borrar tareas)
+│   │
+│   ├── models/
+│   │   ├── userModel.js       # Consultas SQL relacionadas con usuarios
+│   │   └── taskModel.js       # Consultas SQL relacionadas con tareas
+│   │
+│   ├── routes/
+│   │   ├── authRoutes.js      # Definición de endpoints de autenticación (/api/auth)
+│   │   └── taskRoutes.js      # Definición de endpoints de tareas (/api/tasks)
+│   │
+│   ├── database.sql           # Script para crear las tablas en Postgres (DDL)
+│   ├── server.js              # Punto de entrada de Node.js (Express setup y middlewares)
+│   ├── .env                   # Variables de entorno (credenciales de DB, puerto)
+│   └── package.json
+│
+└── frontend/
+    ├── css/
+    │   └── styles.css         # Estilos de las 3 columnas y el login
+    │
+    ├── js/
+    │   ├── api.js             # Funciones reutilizables con 'fetch' para hablar con el back
+    │   ├── auth.js            # Manejo del formulario de login y almacenamiento del estado/token
+    │   └── app.js             # Manipulación del DOM (pintar tareas, mover de columna, filtros)
+    │
+    ├── login.html             # Pantalla de inicio de sesión
+    └── index.html             # Tablero principal (Pendiente, En Curso, Completado)
