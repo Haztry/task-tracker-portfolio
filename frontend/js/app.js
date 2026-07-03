@@ -177,11 +177,11 @@ async function deleteTask(id) {
   const token = localStorage.getItem("token");
   if (confirm("¿Estás seguro de que deseas eliminar esta tarea?")) {
     try {
-      const response = await fetch(`${API_URL}/${id}`, {
-        method: "DELETE",
+      const response = await fetch(API_URL, {
+        method: "GET",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
         },
       });
       const result = await response.json();
