@@ -178,7 +178,7 @@ async function deleteTask(id) {
   if (confirm("¿Estás seguro de que deseas eliminar esta tarea?")) {
     try {
       const response = await fetch(API_URL, {
-        method: "GET",
+        method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
