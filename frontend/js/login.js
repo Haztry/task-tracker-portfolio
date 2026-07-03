@@ -3,7 +3,7 @@ const loginError = document.getElementById("login-error");
 const errorMessage = document.getElementById("error-message");
 
 // URL de tu API de autenticación (ajústala si tu ruta es diferente, ej: /api/auth/login)
-const AUTH_URL = "http://127.0.0.1:8080/api/auth/login";
+const AUTH_URL = "https://task-tracker-portfolio.onrender.com/api/auth/login";
 
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault(); // Evita que la página se recargue

@@ -1,5 +1,5 @@
 // Configuración de la URL base de tu backend
-const API_URL = "http://localhost:3000/api/tasks";
+const API_URL = "https://task-tracker-portfolio.onrender.com/api/tasks";
 
 // Elementos del DOM (HTML)
 const btnAddTask = document.getElementById("btn-add-task");
@@ -201,7 +201,7 @@ btnAddTask.addEventListener("click", () => {
 async function simulateLogin(username, email, password) {
   try {
     // Intentamos hacer login directo
-    let response = await fetch("http://localhost:3000/api/auth/login", {
+    let response = await fetch("https://task-tracker-portfolio.onrender.com/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -212,7 +212,7 @@ async function simulateLogin(username, email, password) {
     // Si no existe el usuario (401), lo registramos primero automáticamente
     if (!result.ok) {
       console.log("Usuario no encontrado, registrando...");
-      const regRes = await fetch("http://localhost:3000/api/auth/register", {
+      const regRes = await fetch("https://task-tracker-portfolio.onrender.com/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),
@@ -222,7 +222,7 @@ async function simulateLogin(username, email, password) {
       if (!regResult.ok) throw new Error(regResult.error.message);
 
       // Volvemos a intentar login ahora que ya existe
-      response = await fetch("http://localhost:3000/api/auth/login", {
+      response = await fetch("https://task-tracker-portfolio.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
