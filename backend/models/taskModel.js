@@ -31,7 +31,7 @@ const Task = {
     const qry = `
             UPDATE tasks 
             SET title = $1, description = $2, status = $3, priority = $4, assigned_to = $5, updated_at = CURRENT_TIMESTAMP
-            WHERE id = $6
+            WHERE id = $6 AND assigned_to = $7
             RETURNING *
         `;
     // El returning es un superpoder de postgres mejor que mysql, te devuelve la fila afectada, no necesitas un select..
@@ -41,7 +41,7 @@ const Task = {
 
   // 4. ELIMINAR UNA TAREA
   delete: async (id, userId) => {
-    const qry = `DELETE FROM tasks WHERE id = $1 RETURNING *`;
+    const qry = `DELETE FROM tasks WHERE id = $1 AND assigned_to = $2 RETURNING *`;
     const { rows } = await db.query(qry, [id, userId]);
     return rows[0]; // Retorna la tarea que fue eliminada
   },
